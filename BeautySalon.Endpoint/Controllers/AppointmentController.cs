@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace BeautySalon.Endpoint.Controllers
 {
     [ApiController]
-    [Route("{controller}")]
-    public class AppointmentController
+    [Route("[controller]")]
+    public class AppointmentController : ControllerBase
     {
         AppointmentLogic logic;
 

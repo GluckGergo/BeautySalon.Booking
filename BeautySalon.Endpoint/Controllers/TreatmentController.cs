@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace BeautySalon.Endpoint.Controllers
 {
     [ApiController]
-    [Route("{controller}")]
-    public class TreatmentController
+    [Route("[controller]")]
+    public class TreatmentController : ControllerBase
     {
         TreatmentLogic logic;
 
