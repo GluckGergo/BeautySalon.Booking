@@ -23,8 +23,8 @@ namespace BeautySalon.Logic
         public async Task Create(AppointmentCreateUpdateDto dto)
         {
 
-            var movie = mapper.Map<Appointment>(dto);
-            await repository.CreateAsync(movie);
+            var appointment = mapper.Map<Appointment>(dto);
+            await repository.CreateAsync(appointment);
         }
     }
 }
