@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BeautySalon.Entities;
 using BeautySalon.Entities.Dto.Appointment;
+using BeautySalon.Entities.Dto.Treatment;
 
 namespace BeautySalon.Logic
 {
@@ -12,8 +13,12 @@ namespace BeautySalon.Logic
         {
             Mapper = new Mapper(new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<AppointmentCreateUpdateDto, Appointment>();
+                cfg.CreateMap<Treatment, TreatmentViewDto>();
+                cfg.CreateMap<TreatmentCreateUpdateDto, Treatment>();
+
+
                 cfg.CreateMap<Appointment, AppointmentViewDto>();
+                cfg.CreateMap<AppointmentCreateUpdateDto, Appointment>();
             }));
         }
     }
