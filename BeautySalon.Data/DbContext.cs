@@ -13,6 +13,7 @@ namespace BeautySalon.Data
     {
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Treatment> Treatments { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
 
         public DbContext(DbContextOptions<DbContext> opt) : base(opt)
         {
