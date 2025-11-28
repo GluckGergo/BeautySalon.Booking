@@ -1,5 +1,7 @@
 
 using BeautySalon.Data;
+using BeautySalon.Logic;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace BeautySalon.Endpoint
@@ -17,6 +19,11 @@ namespace BeautySalon.Endpoint
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddTransient(typeof(Repository<>));
+            builder.Services.AddTransient<AppointmentLogic>();
+            builder.Services.AddTransient<TreatmentLogic>();
+            builder.Services.AddTransient<DtoProvider>();
+
             builder.Services.AddDbContext<Data.DbContext>(opt =>
             {
                 opt
@@ -33,6 +40,7 @@ namespace BeautySalon.Endpoint
                 app.UseSwaggerUI();
             }
 
+            app.UseRouting();
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
