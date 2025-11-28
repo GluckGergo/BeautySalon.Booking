@@ -10,7 +10,7 @@ namespace BeautySalon.Logic
         public Repository<Appointment> repository;
         public Mapper mapper;
 
-        public MovieLogic(Repository<Appointment> repository, DtoProvider provider)
+        public AppointmentLogic(Repository<Appointment> repository, DtoProvider provider)
         {
             this.repository = repository;
             this.mapper = provider.Mapper;
