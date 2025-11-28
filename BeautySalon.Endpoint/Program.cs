@@ -1,4 +1,7 @@
 
+using BeautySalon.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace BeautySalon.Endpoint
 {
     public class Program
@@ -13,6 +16,13 @@ namespace BeautySalon.Endpoint
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<Data.DbContext>(opt =>
+            {
+                opt
+                .UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=BookingDbX;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=True")
+                .UseLazyLoadingProxies();
+            });
 
             var app = builder.Build();
 
