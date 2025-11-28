@@ -13,6 +13,6 @@ namespace BeautySalon.Entities
         public string TreatmentId { get; set; } = string.Empty;
 
         [NotMapped]
-        public Treatment? Treatment { get; set; }
+        public virtual Treatment? Treatment { get; set; }
     }
 }

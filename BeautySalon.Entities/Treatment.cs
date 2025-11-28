@@ -14,6 +14,6 @@ namespace BeautySalon.Entities
         public int Time { get; set; }
 
         [NotMapped]
-        public ICollection<Appointment>? Appointments { get; set; }
+        public virtual ICollection<Appointment>? Appointments { get; set; }
     }
 }
