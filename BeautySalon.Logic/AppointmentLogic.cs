@@ -26,5 +26,19 @@ namespace BeautySalon.Logic
             var appointment = mapper.Map<Appointment>(dto);
             await repository.CreateAsync(appointment);
         }
+        public async Task Delete(string id)
+        {
+            await repository.DeleteByIdAsync(id);
+        }
+
+        public async Task Update(string id, AppointmentCreateUpdateDto dto)
+        {
+            var movieToUpdate = repository.FindById(id);
+            if (movieToUpdate != null)
+            {
+                mapper.Map(dto, movieToUpdate);
+                await repository.UpdateAsync(movieToUpdate);
+            }
+        }
     }
 }
