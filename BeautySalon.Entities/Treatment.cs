@@ -12,6 +12,8 @@ namespace BeautySalon.Entities
         [StringLength(250)]
         public string Name { get; set; } = string.Empty;
         public int Time { get; set; }
+
+        [NotMapped]
         public ICollection<Appointment>? Appointments { get; set; }
     }
 }

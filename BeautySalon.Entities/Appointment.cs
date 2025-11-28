@@ -11,6 +11,8 @@ namespace BeautySalon.Entities
 
         public DateTime Date { get; set; }
         public string TreatmentId { get; set; } = string.Empty;
+
+        [NotMapped]
         public Treatment? Treatment { get; set; }
     }
 }
