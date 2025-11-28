@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautySalon.Entities.Dto
+namespace BeautySalon.Entities.Dto.Treatment
 {
     public class TreatmentCreateUpdateDto
     {

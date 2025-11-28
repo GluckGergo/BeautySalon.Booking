@@ -1,11 +1,12 @@
-﻿using System;
+﻿using BeautySalon.Entities.Dto.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautySalon.Entities.Dto
+namespace BeautySalon.Entities.Dto.Treatment
 {
     public class TreatmentViewDto
     {

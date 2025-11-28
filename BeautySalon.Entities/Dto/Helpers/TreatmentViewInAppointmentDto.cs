@@ -1,4 +1,4 @@
-﻿namespace BeautySalon.Entities.Dto
+﻿namespace BeautySalon.Entities.Dto.Helpers
 {
     public class TreatmentViewInAppointmentDto
     {

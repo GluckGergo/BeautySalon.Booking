@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautySalon.Entities.Dto
+namespace BeautySalon.Entities.Dto.Appointment
 {
-    public class AppointmentViewDto
+    public class AppointmentCreateUpdateDto
     {
-        public string Id { get; set; } = string.Empty;
         public DateTime Date { get; set; }
         public string TreatmentId { get; set; } = string.Empty;
-        public TreatmentViewInAppointmentDto? Treatment { get; set; }
     }
 }
