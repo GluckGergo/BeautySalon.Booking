@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36603.0 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautySalon.Endpoint", "BeautySalon.Endpoint\BeautySalon.Endpoint.csproj", "{ACF7BFA7-9FAB-44CF-9F8E-F548654B4223}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautySalon.Data", "BeautySalon.Data\BeautySalon.Data.csproj", "{354DEDE2-B49E-4AF6-BB86-A3297490E204}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautySalon.Entities", "BeautySalon.Entities\BeautySalon.Entities.csproj", "{FF3A45B7-6296-48ED-BD54-4288159BC0B1}"
 EndProject
 Global
@@ -17,10 +19,14 @@ Global
 		{ACF7BFA7-9FAB-44CF-9F8E-F548654B4223}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACF7BFA7-9FAB-44CF-9F8E-F548654B4223}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACF7BFA7-9FAB-44CF-9F8E-F548654B4223}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF3A45B7-6296-48ED-BD54-4288159BC0B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+	{FF3A45B7-6296-48ED-BD54-4288159BC0B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF3A45B7-6296-48ED-BD54-4288159BC0B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF3A45B7-6296-48ED-BD54-4288159BC0B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF3A45B7-6296-48ED-BD54-4288159BC0B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	{354DEDE2-B49E-4AF6-BB86-A3297490E204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{354DEDE2-B49E-4AF6-BB86-A3297490E204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{354DEDE2-B49E-4AF6-BB86-A3297490E204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{354DEDE2-B49E-4AF6-BB86-A3297490E204}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
