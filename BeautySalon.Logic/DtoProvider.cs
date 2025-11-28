@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using BeautySalon.Entities;
+using BeautySalon.Entities.Dto.Appointment;
 
 namespace BeautySalon.Logic
 {
     public class DtoProvider
     {
+        public Mapper Mapper { get; }
+
+        public DtoProvider()
+        {
+            Mapper = new Mapper(new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<AppointmentCreateUpdateDto, Appointment>();
+                cfg.CreateMap<Appointment, AppointmentViewDto>();
+            }));
+        }
     }
 }
