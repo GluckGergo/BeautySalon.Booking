@@ -9,8 +9,10 @@ namespace BeautySalon.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; } = Guid.NewGuid().ToString();
 
-        [StringLength(250)]
+        [StringLength(50)]
         public string Name { get; set; } = string.Empty;
+
+        [Range(5,120)]
         public int Time { get; set; }
 
         [NotMapped]
