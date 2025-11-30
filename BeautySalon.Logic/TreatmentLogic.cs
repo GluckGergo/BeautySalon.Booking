@@ -23,23 +23,30 @@ namespace BeautySalon.Logic
         }
         public async Task Create(TreatmentCreateUpdateDto dto)
         {
-
             var treatment = mapper.Map<Treatment>(dto);
             await repository.CreateAsync(treatment);
         }
         public async Task Delete(string id)
         {
-            await repository.DeleteByIdAsync(id);
+            var movieToUpdate = repository.FindById(id);
+
+            if (movieToUpdate == null)
+                await repository.DeleteByIdAsync(id);
+            else
+                throw new KeyNotFoundException($"Treatment with id {id} not found");
         }
 
         public async Task Update(string id, TreatmentCreateUpdateDto dto)
         {
             var movieToUpdate = repository.FindById(id);
+            
             if (movieToUpdate != null)
             {
                 mapper.Map(dto, movieToUpdate);
                 await repository.UpdateAsync(movieToUpdate);
             }
+            else
+                throw new KeyNotFoundException($"Treatment with id {id} not found");
         }
     }
 }
