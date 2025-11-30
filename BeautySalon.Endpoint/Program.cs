@@ -85,17 +85,16 @@ namespace BeautySalon.Endpoint
                 {
                     ValidateIssuer = true,
                     ValidateAudience = true,
-                    ValidAudience = "movieclub.com",
-                    ValidIssuer = "movieclub.com",
-                    //IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["jwt:key"] ?? throw new Exception("jwt:key not found in appsettings.json")))
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("NagyonhosszútitkosítókulcsNagyonhosszútitkosítókulcsNagyonhosszútitkosítókulcsNagyonhosszútitkosítókulcsNagyonhosszútitkosítókulcsNagyonhosszútitkosítókulcs"))
+                    ValidAudience = builder.Configuration["jwt:audience"] ?? throw new Exception("jwt:audience not found in appsettings.json"),
+                    ValidIssuer = builder.Configuration["jwt:issuer"] ?? throw new Exception("jwt:issuer not found in appsettings.json"),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["jwt:key"] ?? throw new Exception("jwt:key not found in appsettings.json")))
                 };
             });
 
             builder.Services.AddDbContext<Data.DbContext>(opt =>
             {
                 opt
-                .UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=BookingDbX;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=True")
+                .UseSqlServer(builder.Configuration["sql:server"] ?? throw new Exception("sql:server not found in appsettings.json"))
                 .UseLazyLoadingProxies();
             });
 

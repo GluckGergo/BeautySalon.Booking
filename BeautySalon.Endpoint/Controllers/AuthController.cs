@@ -84,7 +84,7 @@ namespace BeautySalon.Endpoint.Controllers
                 ValidateIssuer = false,
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(
-                  Encoding.UTF8.GetBytes(configuration["jwt:key"] ?? "")),
+                  Encoding.UTF8.GetBytes(configuration["jwt:key"] ?? throw new Exception("jwt:key not found in appsettings.json"))),
                 ValidateLifetime = false
             };
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -116,9 +116,9 @@ namespace BeautySalon.Endpoint.Controllers
                         claim.Add(new Claim(ClaimTypes.Role, role));
                     }
 
-                    int accessTokenExpiryInMinutes = 24 * 60;
+                    int accessTokenExpiryInMinutes = int.Parse(configuration["jwt:accessTokenExpiryInMinutes"] ?? throw new Exception("jwt:accessTokenExpiryInMinutes not found in appsettings.json"));
                     var accessToken = GenerateAccessToken(claim, accessTokenExpiryInMinutes);
-                    int refreshTokenExpiryInDays = 24 * 60 * 7;
+                    int refreshTokenExpiryInDays = int.Parse(configuration["jwt:refreshTokenExpiryInDays"] ?? throw new Exception("jwt:refreshTokenExpiryInDays not found in appsettings.json"));
                     var refreshToken = await GenerateRefreshToken(user);
 
                     return Ok(new LoginResultDto()
@@ -147,8 +147,8 @@ namespace BeautySalon.Endpoint.Controllers
                   Encoding.UTF8.GetBytes(configuration["jwt:key"] ?? throw new Exception("jwt:key not found in appsettings.json")));
 
             return new JwtSecurityToken(
-                  issuer: "movieclub.com",
-                  audience: "movieclub.com",
+                  issuer: configuration["jwt:issuer"] ?? throw new Exception("jwt:issuer not found in appsettings.json"),
+                  audience: configuration["jwt:audience"] ?? throw new Exception("jwt:audience not found in appsettings.json"),
                   claims: claims?.ToArray(),
                   expires: DateTime.Now.AddMinutes(expiryInMinutes),
                   signingCredentials: new SigningCredentials(signinKey, SecurityAlgorithms.HmacSha256)
