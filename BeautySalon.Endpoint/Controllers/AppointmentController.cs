@@ -24,18 +24,21 @@ namespace BeautySalon.Endpoint.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task Post(AppointmentCreateUpdateDto dto)
         {
             await logic.Create(dto);
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task Delete(string id)
         {
             await logic.Delete(id);
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task Update(string id, [FromBody] AppointmentCreateUpdateDto dto)
         {
             await logic.Update(id, dto);
